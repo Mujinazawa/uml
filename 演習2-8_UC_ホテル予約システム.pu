@@ -1,0 +1,28 @@
+@startuml 演習2-8_UC_ホテル予約システム.pu
+left to right direction
+
+actor 利用者
+actor 管理者
+actor ホテル従業員
+
+rectangle ホテル予約システム{
+    usecase 空室状況閲覧
+    usecase 会員登録
+    usecase キャンペーン
+    usecase キャンペーン価格
+    usecase (<u>予約</u>\n拡張点\nキャンペーン中) as input
+    usecase ログイン
+    usecase 予約集計
+    usecase 空室状況入力
+}
+利用者 --> 空室状況閲覧
+利用者 --> 会員登録
+利用者 --> input
+input   .> ログイン: <<include>>
+input   .> キャンペーン価格: <<include>>
+キャンペーン .> input: <<extend>>
+予約集計 <-- ホテル従業員
+空室状況入力 <-- ホテル従業員
+ログイン <. 予約集計: <<include>>
+ログイン <. 空室状況入力: <<include>>
+@enduml
