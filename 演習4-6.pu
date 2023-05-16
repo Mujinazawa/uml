@@ -1,0 +1,15 @@
+@startuml 演習4-6
+hide footbox
+
+actor "ユーザー" as user
+participant "ブラウザ" as browser
+participant "Web サーバー" as webServer
+participant "画像サーバー" as imageServer
+
+user -> browser: 画像のリンクボタンを押す
+browser -> webServer: 画像のファイル名を伝える
+webServer -> imageServer: 画像ファイルを探す
+imageServer -> webServer: 該当する画像ファイルを返す
+webServer -> browser: 画像ファイルを再生する
+
+@enduml

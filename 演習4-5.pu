@@ -1,0 +1,18 @@
+@startuml 演習4-5
+hide footbox
+
+boundary "商品検索画面" as searchForm
+control "商品検索コントローラ" as searchController
+entity "商品" as product
+entity "商品カテゴリ" as category
+
+actor "会員"
+
+会員 -> searchForm: 商品番号をもちいて商品検索ができるメッセージを発信する
+searchForm -> searchController: 商品情報をもとに商品情報を表示できる
+searchController -> searchController: 商品を生成できるメッセージを発信する
+searchController -> searchController: 商品カテゴリ数がある分だけ繰り返し作業をする
+searchController -> category: 商品カテゴリを作成するメッセージを発信する
+searchController -> category: 商品カテゴリを設定できるメッセージを発信する
+
+@enduml

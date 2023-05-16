@@ -1,0 +1,12 @@
+@startuml 演習4-3_SD_データ更新コントローラとホテルと予約
+hide footbox
+
+object "データ更新コントローラクラス" as controller
+object "ホテルクラス" as hotel
+object "予約オブジェクト" as reservationObj <<create>>
+
+controller -> hotel: 予約操作を呼び出す
+hotel -> reservationObj: 予約オブジェクトを作成
+hotel -> hotel: 予約操作を呼び出す
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml 演習4-4
+hide footbox
+
+actor "受注係" as orderClerk
+boundary "注文登録画面" as orderForm
+entity "商品" as product
+entity "注文"
+
+orderClerk -> orderForm: 商品情報確認()
+orderForm -> orderForm: 商品情報表示(商品情報) : 再帰呼出し
+orderForm -> orderForm: 商品登録(注文情報)
+orderForm -> product: 商品情報取得()
+orderForm -> 注文: 注文オブジェクトを生成する
+
+@enduml
