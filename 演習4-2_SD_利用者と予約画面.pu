@@ -1,10 +1,9 @@
-@startuml 演習4-2_SD_利用者と予約画面
-title ログインと認証のシーケンス図
+@startuml 演習4-2_SD_利用者と予約画面.pu
 
-actor User
+object 利用者クラスのオブジェクト as user
+object 予約画面クラスのオブジェクト as 予約画面
 
-User -> ReservationScreen: ログイン (非同期)
-
-ReservationScreen -> ReservationScreen: 認証する (同期)
+user -> 予約画面: ログインする (非同期)
+予約画面 -> 予約画面: 認証する
 
 @enduml
