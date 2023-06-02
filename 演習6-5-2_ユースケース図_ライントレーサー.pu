@@ -1,0 +1,20 @@
+@startuml 演習6-5-2_ユースケース図_ライントレーサー
+actor ユーザー as User
+
+rectangle ライントレーサー {
+  usecase "システム起動" as Start
+  usecase "右旋回開始" as TurnRight
+  usecase "左旋回開始" as TurnLeft
+  usecase "進行" as MoveForward
+  usecase "システム停止" as Stop
+
+  User --> Start: 電源SWを入れる
+  Start --> TurnRight: 光センサーが黒いライン上にある
+  TurnRight --> MoveForward: ライントレーサーは右境界線上を進む
+  MoveForward --> TurnLeft: 光センサーがラインを外れる
+  TurnLeft --> MoveForward: ライントレーサーは右境界線上を進む
+  User --> Stop: 電源SWを切る
+}
+
+User --> ライントレーサー: 操作する
+@enduml
